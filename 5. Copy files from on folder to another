@@ -1,0 +1,24 @@
+"""
+5. Create a programme that searches a folder tree for files with a certain file extension
+    (such as .pdf or .jpg). Copy these files from whatever location they are in to a new folder.
+
+    This program will find the files with specified file extension in all the file tree mentioned
+    in the specified source directory and copies to destination directory as specified by the user.
+
+"""
+
+def copyfile():
+    
+    import os
+    import shutil
+    
+    srcdir = input("Enter source directory:")
+    dstdir = input("Enter destination directory:")
+    ext = str(input("Enter extension with . :"))
+    for root, dirs, files in os.walk(srcdir):
+        for file in files:
+            if file.endswith(ext):
+                shutil.copy(os.path.join(root, file), os.path.join(dstdir, file))
+                
+
+copyfile()
